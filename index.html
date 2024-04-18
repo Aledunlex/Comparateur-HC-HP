@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur d'économies d'électricité</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Calculateur d'économies d'électricité</h1>
+      <div class="columns">
+        <div class="column is-half">
+          <div class="field">
+            <label class="label" for="off-peak-rate">Tarif heure creuse (en kWh)</label>
+            <div class="control">
+              <input class="input" type="number" step="0.0001" id="off-peak-rate" value="0.1927">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="peak-rate">Tarif heure pleine (en kWh)</label>
+            <div class="control">
+              <input class="input" type="number" step="0.0001" id="peak-rate" value="0.2795">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="weekly-machines">Machines par semaine</label>
+            <div class="control">
+              <input class="input" type="number" id="weekly-machines" value="2">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="cycle-time">Temps du cycle (en heures)</label>
+              <div class="control">
+                <input class="input" type="number" step="0.01" id="cycle-time" value="1.0">
+              </div>
+          </div>
+          
+          <div class="field">
+            <label class="label" for="machine-consumption">Consommation par cycle (en kWh)</label>
+            <div class="control">
+              <input class="input" type="number" id="machine-consumption"
+               step=0.01 value="0.69" >
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" id="calculate-btn">Calculer</button>
+            </div>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="box">
+            <h2 class="subtitle">Résultat</h2>
+            <p>Heures creuses VS heures pleines: <span id="off-peak-savings" value="0"></span> € par an</p>
+            <div class="box">
+              <h2 class="subtitle">Détails du calcul</h2>
+              <p>Nombre d'heures de fonctionnement par an : <span id="annual-hours"></span></p>
+              <p>Coût annuel en heures creuses : <span id="off-peak-cost"></span> €</p>
+              <p>Coût annuel en heures pleines : <span id="peak-cost"></span> €</p>
+            </div>
+          </div>
+          <div class="box">
+            <h2 class="subtitle">Tableau comparatif des consommations moyennes en fonction de la classe énergétique du lave-linge</h2>
+            <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th scope="col">Classe énergétique</th>
+                  <th scope="col">Consommation (moyenne pour un cycle d'1h)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">A</th>
+                  <td>0,31 kWh</td>
+                </tr>
+                <tr>
+                  <th scope="row">B</th>
+                  <td>0,52 kWh</td>
+                </tr>
+                <tr>
+                  <th scope="row">C</th>
+                  <td>0,63 kWh</td>
+                </tr>
+                <tr>
+                  <th scope="row">D</th>
+                  <td>0,69 kWh</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+
+</html>
